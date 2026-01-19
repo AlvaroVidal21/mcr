@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         song.blocks.forEach((block, index) => {
             const btn = document.createElement('button');
-            btn.className = `atom-btn w-full text-left p-4 border border-zinc-800 bg-zinc-900/50 text-sm font-mono text-zinc-400 transition-all duration-200 hover:pl-6`;
+            btn.className = `atom-btn w-full text-left p-4 border border-zinc-800 bg-zinc-900/50 text-xs md:text-sm font-mono text-zinc-400 transition-all duration-200 hover:pl-6 break-words whitespace-normal leading-tight`;
             btn.innerText = `[${String(index + 1).padStart(2, '0')}] ${block.label}`;
             
             btn.onclick = () => {

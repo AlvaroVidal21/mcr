@@ -84,23 +84,23 @@
 
     <div id="sidebar-overlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-30 transition-opacity"></div>
 
-    <header class="border-b border-zinc-800 p-4 flex justify-between items-center bg-black/90 backdrop-blur-md z-50">
-        <div class="flex items-center gap-3">
-            <button id="menu-toggle" class="md:hidden p-2 text-zinc-400 hover:text-white transition-colors">
+    <header class="border-b border-zinc-800 p-4 flex justify-between items-start bg-black/90 backdrop-blur-md z-50">
+        <div class="flex items-start gap-3">
+            <button id="menu-toggle" class="md:hidden p-2 text-zinc-400 hover:text-white transition-colors -mt-1">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
                 </svg>
             </button>
-            <div>
-                <h1 id="song-title" class="text-xl md:text-2xl font-bold text-white tracking-tighter glitch-hover cursor-default">SELECT_TRACK</h1>
-                <p id="song-meta" class="text-[10px] md:text-xs text-red-500 uppercase tracking-widest truncate max-w-[200px] md:max-w-none">NO_DATA_LOADED</p>
+            <div class="flex-1 min-w-0">
+                <h1 id="song-title" class="text-xl md:text-2xl font-bold text-white tracking-tighter glitch-hover cursor-default leading-none">SELECT_TRACK</h1>
+                <p id="song-meta" class="text-[10px] md:text-xs text-red-500 uppercase tracking-widest leading-relaxed mt-2 break-words max-w-[180px] xs:max-w-xs md:max-w-2xl">NO_DATA_LOADED</p>
             </div>
         </div>
-        <div class="flex items-center gap-4">
-            <span id="block-counter" class="text-[10px] font-mono text-zinc-500 hidden lg:block uppercase">BLOCK: 00/00</span>
-            <select id="track-selector" class="bg-black border border-zinc-700 text-xs md:text-sm p-2 rounded text-zinc-400 focus:border-red-500 outline-none max-w-[120px] md:max-w-none">
+        <div class="flex flex-col items-end gap-2">
+            <select id="track-selector" class="bg-black border border-zinc-700 text-xs md:text-sm p-2 rounded text-zinc-400 focus:border-red-500 outline-none w-28 xs:w-32 md:w-auto">
                 <option value="">-- CARGAR DISCO --</option>
             </select>
+            <span id="block-counter" class="text-[9px] font-mono text-zinc-500 hidden lg:block uppercase tracking-tighter">BLOCK: 00/00</span>
         </div>
     </header>
 
@@ -116,11 +116,13 @@
                 </div>
         </aside>
 
-        <main class="flex-1 flex flex-col relative bg-gradient-to-br from-black to-zinc-900">
+        <main class="flex-1 flex flex-col relative bg-gradient-to-br from-black to-zinc-900 overflow-hidden">
             
-            <div class="flex-1 flex items-center justify-center p-6 md:p-16 text-center">
-                <div id="lyric-en" class="text-xl md:text-4xl lg:text-5xl font-bold text-white leading-tight drop-shadow-2xl px-4">
-                    <span class="text-zinc-700 text-lg">MCR_ATOMIZER_SYSTEM//READY</span>
+            <div class="flex-1 overflow-y-auto p-4 md:p-8 lg:p-16">
+                <div class="min-h-full flex items-center justify-center">
+                    <div id="lyric-en" class="text-xl md:text-3xl lg:text-5xl font-bold text-white leading-tight drop-shadow-2xl px-4 break-words w-full max-w-4xl text-center">
+                        <span class="text-zinc-700 text-lg">MCR_ATOMIZER_SYSTEM//READY</span>
+                    </div>
                 </div>
             </div>
 
@@ -128,7 +130,7 @@
                 <div class="flex justify-between items-start mb-2">
                     <h3 class="text-red-600 text-[10px] md:text-xs font-bold uppercase tracking-widest">Interpretación / Subtexto</h3>
                 </div>
-                <p id="lyric-es" class="text-zinc-400 text-base md:text-xl font-serif italic leading-relaxed">
+                <p id="lyric-es" class="text-zinc-400 text-base md:text-lg font-serif italic leading-relaxed break-words">
                     --
                 </p>
             </div>
