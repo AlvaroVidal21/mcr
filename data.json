@@ -173,6 +173,67 @@
           "context": "La conclusión axiomática. Después de describir labios agrietados, falta de cabello y quimioterapia, concluye que nada de eso importa. El amor duele más que el cáncer. La repetición final es suave, como si se quedara dormido (o muriera) al decirlo."
         }
       ]
+    },
+    {
+      "id": "dont_love_you",
+      "title": "I Don't Love You",
+      "interpretation": "La Balada del Desahucio. No es una ruptura amorosa, es una expulsión. La letra revela una relación marcada por deudas ('owe'), violencia ('beating', 'blood') y desprecio ('good-for-nothing'). El protagonista no está llorando la pérdida; está echando a alguien tóxico de su vida y desafiándolo a tener la dignidad de admitir que el amor murió.",
+      "blocks": [
+        {
+          "label": "VERSO 1: EL DESAHUCIO",
+          "en": "Well, when you go\nDon't ever think I'll make you try to stay\nAnd maybe when you get back\nI'll be off to find another way",
+          "es_text": "Bueno, cuando te vayas\nNunca pienses que te obligaré a intentar quedarte\nY quizás cuando vuelvas\nYo ya me habré ido a buscar otro camino",
+          "context": "La puerta abierta. 'Don't ever think I'll make you try to stay' elimina el poder de la otra persona. No habrá súplicas. Es una declaración de indiferencia absoluta ante su partida."
+        },
+        {
+          "label": "VERSO 1 (CONT): LA DEUDA",
+          "en": "And after all this time that you still owe\nYou're still a good-for-nothing, I don't know\nSo take your gloves and get out\nBetter get out while you can",
+          "es_text": "Y después de todo este tiempo que aún debes\nSigues siendo una inútil, no lo sé\nAsí que toma tus guantes y lárgate\nMejor lárgate mientras puedas",
+          "context": "El insulto directo. 'Good-for-nothing' (inútil/bueno para nada) y 'owe' (deber) transforman el amor en una transacción fallida. 'Take your gloves' sugiere que la pelea ha terminado o que hace frío fuera (literal y metafóricamente). La amenaza 'while you can' implica que la paciencia se ha agotado."
+        },
+        {
+          "label": "CORO 1: LA PREGUNTA FRÍA",
+          "en": "When you go, and would you even turn to say\n\"I don't love you like I did yesterday\"?",
+          "es_text": "Cuando te vayas, ¿te girarías siquiera para decir\n\"No te amo como lo hice ayer\"?",
+          "context": "El desafío de honestidad. No pide amor, pide la verdad. Nota el uso de 'did yesterday' (como lo *hice* ayer). Cuestiona si la otra persona tiene la decencia de admitir el final a la cara."
+        },
+        {
+          "label": "VERSO 2: LA VIOLENCIA",
+          "en": "Sometimes I cry so hard from pleading\nSo sick and tired of all the needless beating\nBut baby, when they knock you down and out\nIs where you oughta stay",
+          "es_text": "A veces lloro tanto de suplicar\nTan harto y cansado de toda la paliza innecesaria\nPero nena, cuando te noqueen y te dejen fuera\nEs donde deberías quedarte",
+          "context": "Revelación de abuso. 'Needless beating' (golpiza innecesaria) puede ser físico o emocional, pero confirma la toxicidad extrema. El remate es brutal: 'Where you oughta stay' (donde deberías quedarte, en el suelo). Ya no hay compasión, hay venganza pasiva."
+        },
+        {
+          "label": "VERSO 2 (CONT): LA SANGRE",
+          "en": "And after all the blood that you still owe\nAnother dollar's just another blow\nSo fix your eyes and get up\nBetter get up while you can\nWhoa, whoa...",
+          "es_text": "Y después de toda la sangre que aún debes\nOtro dólar es solo otro golpe\nAsí que arregla tu mirada y levántate\nMejor levántate mientras puedas",
+          "context": "Escalada de costo. Cambia 'time' (tiempo) por 'blood' (sangre). La relación le ha costado vida. 'Another dollar's just another blow' conecta el dinero con el dolor físico. Le ordena levantarse ('get up') para que se vaya, no para ayudarla."
+        },
+        {
+          "label": "CORO 2: REPETICIÓN",
+          "en": "When you go, and would you even turn to say\n\"I don't love you like I did yesterday\"?",
+          "es_text": "Cuando te vayas, ¿te girarías siquiera para decir\n\"No te amo como lo hice ayer\"?",
+          "context": "Mantiene la pregunta. La insistencia en que la otra persona *diga* las palabras muestra que el protagonista necesita escuchar la confirmación para cerrar el ciclo."
+        },
+        {
+          "label": "PUENTE: LA URGENCIA",
+          "en": "Well, come on, come on",
+          "es_text": "Bueno, ¡vamos, vamos!",
+          "context": "Impaciencia pura. Ya no es tristeza, es prisa por que se acabe. Está echando a la persona activamente."
+        },
+        {
+          "label": "CORO 3: LAS AGALLAS (GUTS)",
+          "en": "When you go, would you have the guts to say\n\"I don't love you like I loved you yesterday\"?",
+          "es_text": "Cuando te vayas, ¿tendrías las agallas de decir\n\"No te amo como te amaba ayer\"?",
+          "context": "El cambio crítico. Cambia 'turn to say' por 'have the GUTS to say' (tener las agallas/huevos). Desafía la cobardía de la pareja. También cambia 'did' por 'loved', haciendo la emoción más explícita."
+        },
+        {
+          "label": "OUTRO: LA SENTENCIA FINAL",
+          "en": "I don't love you like I loved you yesterday\nI don't love you like I loved you yesterday",
+          "es_text": "No te amo como te amaba ayer\nNo te amo como te amaba ayer",
+          "context": "La respuesta. Al final, ya no es una pregunta hipotética ('Would you say...'). Es una afirmación. El protagonista asume la frase. El amor se ha evaporado. Es el punto final definitivo."
+        }
+      ]
     }
       
 
