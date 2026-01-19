@@ -63,8 +63,118 @@
           "context": "La catarsis final. Aquí ya no importa la lógica, solo gritar la despedida para sacarla del sistema."
         }
       ]
-    }   
-
+    },
+    {
+      "id": "im_not_okay",
+      "title": "I'm Not Okay (I Promise)",
+      "interpretation": "La Sátira de la Salud Mental. Es un himno sobre la presión de fingir normalidad. La canción narra el colapso mental de alguien que intenta desesperadamente convencer a los demás (y a sí mismo) de que está bien, hasta que la fachada se rompe gritando la verdad.",
+      "blocks": [
+        {
+          "label": "VERSO 1: LA FALSA HONESTIDAD",
+          "en": "Well, if you wanted honesty, that's all you had to say\nI never want to let you down or have you go, it's better off this way",
+          "es_text": "Bueno, si querías honestidad, eso es todo lo que tenías que decir\nNunca quise defraudarte o dejarte ir, es mejor así",
+          "context": "El inicio sarcástico. Ofrece 'honestidad' como una amenaza, no como un regalo. 'Better off this way' implica que decir la verdad va a doler y causar distancia, pero ya no puede contenerla."
+        },
+        {
+          "label": "VERSO 1 (CONT): EL RECUERDO SUCIO",
+          "en": "For all the dirty looks, the photographs your boyfriend took\nRemember when you broke your foot from jumping out the second floor?",
+          "es_text": "Por todas las miradas sucias, las fotos que tomó tu novio\n¿Recuerdas cuando te rompiste el pie saltando del segundo piso?",
+          "context": "Realidad vs. Imagen. Contrasta las fotos perfectas que toma el 'novio' con la realidad sucia y dolorosa de romperse un hueso por una estupidez adolescente. Es un anclaje a la memoria física real."
+        },
+        {
+          "label": "CORO: EL AGOTAMIENTO",
+          "en": "I'm not okay\nI'm not okay\nI'm not okay\nYou wear me out",
+          "es_text": "No estoy bien\nNo estoy bien\nNo estoy bien\nMe estás agotando",
+          "context": "La tesis central. 'You wear me out' (me agotas) es clave. No es solo tristeza, es el cansancio extremo de mantener la máscara social. Repetirlo 3 veces rompe el estigma de admitirlo."
+        },
+        {
+          "label": "VERSO 2: LA HIPOCRESÍA",
+          "en": "What will it take to show you that it's not the life it seems? (I'm not okay)\nI've told you time and time again\nYou sing the words, but don't know what it means (I'm not okay)",
+          "es_text": "¿Qué hará falta para mostrarte que no es la vida que parece?\nTe lo he dicho una y otra vez\nCantas la letra, pero no sabes lo que significa",
+          "context": "Ataque a la superficialidad. Critica a quienes consumen su dolor como entretenimiento ('sing the words') sin entender el sufrimiento real detrás ('don't know what it means')."
+        },
+        {
+          "label": "VERSO 2 (CONT): LA ÚLTIMA MIRADA",
+          "en": "To be a joke, and look, another line without a hook\nI held you close as we both shook\nFor the last time, take a good hard look",
+          "es_text": "Ser un chiste, y mira, otra línea sin gancho comercial\nTe abracé fuerte mientras ambos temblábamos\nPor última vez, mira bien de cerca",
+          "context": "Intimidad tóxica. 'Shook' (temblar) sugiere miedo compartido, ansiedad o abstinencia. Pide que lo miren 'for the last time' porque sabe que después de esta confesión, todo terminará."
+        },
+        {
+          "label": "CORO 2: REPETICIÓN",
+          "en": "I'm not okay\nI'm not okay\nI'm not okay\nYou wear me out (out)",
+          "es_text": "(Repetición del mantra de agotamiento)",
+          "context": "Mantén la energía alta. El '(out)' final es un grito extendido, preparando el terreno para el colapso del puente."
+        },
+        {
+          "label": "PUENTE: EL LIBRO ROTO",
+          "en": "Forget about the dirty looks\nThe photographs your boyfriend took\nYou said you read me like a book\nBut the pages all are torn and frayed",
+          "es_text": "Olvida las miradas sucias\nLas fotos que tomó tu novio\nDijiste que me leías como a un libro\nPero las páginas están todas rotas y deshilachadas",
+          "context": "La imposibilidad de ser entendido. La gente cree conocerlo ('read me like a book'), pero él está demasiado dañado ('torn and frayed') para ser legible. Faltan páginas de su historia, por eso nadie lo entiende."
+        },
+        {
+          "label": "MANIC BREAKDOWN: LA MENTIRA",
+          "en": "I'm okay, I'm okay!\nI'm okay now (I'm okay now)\nBut you really need to listen to me\nBecause I'm telling you the truth\nI mean this, I'm okay! (Trust me)",
+          "es_text": "¡Estoy bien, estoy bien!\nEstoy bien ahora...\nPero realmente necesitas escucharme\nPorque te estoy diciendo la verdad\nLo digo en serio, ¡estoy bien! (Confía en mí)",
+          "context": "EL QUIEBRE PSICÓTICO. Es el momento narrativo más importante. La insistencia maníaca y desesperada ('Trust me', 'Really need to listen') revela que es una mentira absoluta. Está tratando de convencerse a sí mismo para no colapsar. Actúalo con desesperación, no con calma."
+        },
+        {
+          "label": "OUTRO: LA VERDAD CRUDA",
+          "en": "I'm not okay\nI'm not okay\nWell, I'm not okay, I'm not o-fucking-kay\nI'm not okay\nI'm not okay (okay)",
+          "es_text": "No estoy bien\nNo estoy bien\nBueno, no estoy bien, ¡no estoy jodidamente bien!\nNo estoy bien...",
+          "context": "La liberación. La fachada se cae definitivamente. Después de mentir diciendo que estaba bien, explota con el 'Not o-fucking-kay'. Es la catarsis final de la rabia contenida."
+        }
+      ]
+    },
+    {
+      "id": "cancer",
+      "title": "Cancer",
+      "interpretation": "Bio-Horror y Dignidad Terminal. Es la canción más física del álbum. El 'Paciente' narra su descomposición en tiempo real. No pide salvación, pide agua y que no lo miren. El terror real aquí no es la muerte, es la pérdida de la identidad física y la vergüenza de que sus seres queridos lo vean 'empapado' y deteriorado.",
+      "blocks": [
+        {
+          "label": "VERSO 1: LA VERGÜENZA FÍSICA",
+          "en": "Turn away\nIf you could get me a drink\nOf water 'cause my lips are chapped and faded",
+          "es_text": "Date la vuelta\nSi pudieras traerme un trago\nDe agua, porque mis labios están agrietados y descoloridos",
+          "context": "La escena abre con una necesidad biológica básica (sed) mezclada con vergüenza. Pide agua, pero primero ordena 'Turn away' (date la vuelta). No quiere que vean su rostro seco y moribundo. Prioriza ocultar su deterioro sobre su propia hidratación."
+        },
+        {
+          "label": "VERSO 2: LA LOGÍSTICA FINAL",
+          "en": "Call my aunt Marie\nHelp her gather all my things\nAnd bury me\nIn all my favorite colors",
+          "es_text": "Llama a mi tía Marie\nAyúdala a recoger todas mis cosas\nY entiérrame\nCon todos mis colores favoritos",
+          "context": "La aceptación administrativa. El paciente pasa de la sed inmediata a organizar su propio funeral. 'Favorite colors' es un grito desesperado de identidad: quiere ser recordado como era (con color/vida), no como el cuerpo gris que es ahora."
+        },
+        {
+          "label": "PRE-CORO: EL CONTAGIO EMOCIONAL",
+          "en": "My sisters and my brothers, still\nI will not kiss you\n'Cause the hardest part of this\nIs leaving you",
+          "es_text": "Mis hermanas y mis hermanos, aun así\nNo los besaré\nPorque la parte más difícil de esto\nEs dejarlos",
+          "context": "El rechazo del contacto. Dice 'I will not kiss you' posiblemente por miedo irracional a contagiarlos (lógica de enfermo), por repulsión hacia sí mismo, o para empezar a crear distancia emocional. Establece la tesis: el dolor físico es soportable, la separación ('leaving you') no."
+        },
+        {
+          "label": "CORO: EL BIO-REALISMO",
+          "en": "Now turn away\n'Cause I'm awful just to see\n'Cause all my hair's abandoned all my body",
+          "es_text": "Ahora date la vuelta\nPorque soy horrible de ver\nPorque todo mi cabello ha abandonado todo mi cuerpo",
+          "context": "El horror visual. Personifica su cabello ('hair's abandoned me'), como si su propia biología estuviera huyendo de él. Se describe a sí mismo como 'awful' (horrible/espantoso). Confirma que la orden de 'Turn away' es por pura estética del horror."
+        },
+        {
+          "label": "CORO (CONT): EL FUTURO PERDIDO",
+          "en": "All my agony\nKnow that I will never marry\nBaby I'm just soggy from the chemo\nBut counting down the days to go",
+          "es_text": "Toda mi agonía\nSabelo, que nunca me casaré\nBebé, estoy empapado por la quimio\nPero contando los días para irme",
+          "context": "'Soggy' (empapado/blando) es la palabra más visceral de la canción: evoca sudor frío, fluidos y toxicidad química. 'Never marry' es la comprensión de la línea de tiempo truncada: el duelo por la vida adulta que nunca tendrá."
+        },
+        {
+          "label": "VERSO 3: LA NO-VIDA",
+          "en": "It just ain't living\nAnd I just hope you know\nThat if you say (if you say)\nGood-bye today (good-bye today)\nI'd ask you to be true (I'd ask you to be true)",
+          "es_text": "Esto simplemente no es vida\nY solo espero que sepas\nQue si dices (si dices)\nAdiós hoy (adiós hoy)\nTe pediría que fueras sincero...",
+          "context": "La eutanasia pasiva. Estar conectado a máquinas y 'soggy' no cumple con la definición de 'vivir'. Pide veracidad en la despedida. No quiere falsas esperanzas ni lástima, solo un adiós honesto."
+        },
+        {
+          "label": "OUTRO: LA VERDAD NUCLEAR",
+          "en": "'Cause the hardest part of this\nIs leaving you\n'Cause the hardest part of this\nIs leaving you",
+          "es_text": "Porque la parte más difícil de esto\nEs dejarte\nPorque la parte más difícil de esto\nEs dejarte",
+          "context": "La conclusión axiomática. Después de describir labios agrietados, falta de cabello y quimioterapia, concluye que nada de eso importa. El amor duele más que el cáncer. La repetición final es suave, como si se quedara dormido (o muriera) al decirlo."
+        }
+      ]
+    }
+      
 
 
 
