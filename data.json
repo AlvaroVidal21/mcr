@@ -1,0 +1,73 @@
+{
+  "songs": [
+    
+
+
+    {
+      "id": "helena",
+      "title": "Helena",
+      "interpretation": "Réquiem de Conflicto. Esta versión rechaza la paz. Al cambiar 'Goodnight' por 'Not Goodnight' y acusar de 'vender el dolor' (hurt you sold), la canción deja de ser una despedida triste y se convierte en un ajuste de cuentas. Es un adiós sin perdón.",
+      "blocks": [
+        {
+          "label": "VERSO 1: LA CARROZA",
+          "en": "Long ago\nJust like the Hearse you die to get in again\nWe are so far from you",
+          "es_text": "Hace mucho\nIgual que la carroza fúnebre a la que mueres por subir de nuevo\nEstamos tan lejos de ti",
+          "context": "La ironía mórbida. 'Die to get in' (morirse por entrar) es literal y figurado. La distancia ('so far') marca el escenario: tú estás en la muerte, nosotros aquí."
+        },
+        {
+          "label": "VERSO 1 (CONT): EL INCENDIO",
+          "en": "Burning on\nJust like the match you strike to incinerate\nThe lives of everyone you know",
+          "es_text": "Ardiendo\nIgual que el fósforo que enciendes para incinerar\nLas vidas de todos los que conoces",
+          "context": "La metáfora del daño colateral. Tú eres el fósforo, nosotros somos lo que se quema. Reconoce que la forma de vivir (o morir) de esta persona destruyó a su entorno."
+        },
+        {
+          "label": "PRE-CORO: EL CORAZÓN ROTO",
+          "en": "And what's the worst you take\nFrom every heart you break?\nAnd like the blade you'll stain\nWell, I've been holding on tonight",
+          "es_text": "¿Y qué es lo peor que te llevas\nDe cada corazón que rompes?\nY como la hoja (cuchilla) que mancharás\nBueno, me he estado aferrando esta noche",
+          "context": "Pregunta retórica sobre el egoísmo del dolor. 'Holding on' es la resistencia vital: a pesar del corte ('blade'), yo sigo aquí aguantando."
+        },
+        {
+          "label": "CORO 1: LA NEGACIÓN",
+          "en": "What's the worst that I can say?\nThings are better if I stay\nSo long and goodnight\nSo long, not goodnight",
+          "es_text": "¿Qué es lo peor que puedo decir?\nQue las cosas son mejores si me quedo\nHasta siempre y buenas noches\nHasta siempre, NO buenas noches",
+          "context": "El rechazo del cierre. Al decir 'NOT goodnight', te despides ('so long'), pero te niegas a desearle descanso. Es una despedida amarga."
+        },
+        {
+          "label": "VERSO 2: EL DOLOR VENDIDO",
+          "en": "Came a time\nWhen every star fall\nBrought you to tears again\nWe are the very hurt you sold",
+          "es_text": "Llegó un momento\nEn que cada caída de estrella\nTe hacía llorar de nuevo\nSomos el dolor mismo que vendiste",
+          "context": "Acusación brutal. 'We are the very hurt you sold'. Implica traición. Ya no es que estén lejos, es que son el producto de un daño comercializado o manipulado por ella."
+        },
+        {
+          "label": "PRE-CORO 2: REPETICIÓN TÉCNICA",
+          "en": "And what's the worst you take\nFrom every heart you break?\nAnd like a blade you'll stain\nWell, I've been holding on tonight",
+          "es_text": "¿Y qué es lo peor que te llevas...?\n(Repetición del mantra de resistencia)",
+          "context": "La segunda vuelta sirve para coger impulso antes del coro doble. Enfócate en la entonación de 'holding on'."
+        },
+        {
+          "label": "CORO 2: LA EXTENSIÓN",
+          "en": "What's the worst that I can say?\nThings are better if I stay\nSo long and goodnight\nSo long and goodnight\nWell, if you carry on this way\nThings are better if I stay\nSo long and goodnight\nSo long and goodnight",
+          "es_text": "...Que las cosas son mejores si me quedo\n(Repetición)\nBueno, si sigues de esta manera\nLas cosas son mejores si me quedo...",
+          "context": "Aquí se introduce el condicional 'If you carry on this way' (Si sigues así). Es una negociación. Si tú sigues muriendo/haciendo daño, yo me quedo aquí (vivo) para compensarlo."
+        },
+        {
+          "label": "PUENTE: EL REENCUENTRO (CARS COLLIDE)",
+          "en": "Can you hear me?\nAre you near me?\nCan we pretend to leave and then\nWe'll meet again\nWhen both our cars collide",
+          "es_text": "¿Puedes oírme?\n¿Estás cerca de mí?\n¿Podemos fingir que nos vamos y luego\nNos encontraremos de nuevo\nCuando nuestros autos colisionen?",
+          "context": "El clímax narrativo. La verdad es el choque futuro ('cars collide'), el reencuentro violento en el más allá."
+        },
+        {
+          "label": "CORO FINAL: EL CIERRE",
+          "en": "What's the worst that I can say?\nThings are better if I stay\nSo long and goodnight\nSo long and goodnight\nAnd if you carry on this way\nThings are better if I stay\nSo long and goodnight\nSo long and goodnight",
+          "es_text": "(Repetición final del himno de despedida)",
+          "context": "La catarsis final. Aquí ya no importa la lógica, solo gritar la despedida para sacarla del sistema."
+        }
+      ]
+    }   
+
+
+
+
+
+  ]
+}
