@@ -246,13 +246,14 @@ document.addEventListener('DOMContentLoaded', async () => {
                 // Render Spanish Text with Premium Typography
                 lyricEs.innerHTML = `"${block.es_text.replace(/\n/g, '<br>')}"`;
 
-                // Render Context with clearly defined visual hierarchy
+                // Render Context with Grim/Medical Aesthetic
                 contextContainer.innerHTML = `
-                    <div class="relative bg-zinc-900/40 border border-zinc-800 p-4 rounded-lg mt-4">
-                        <div class="absolute -top-3 left-4 bg-black px-2 text-[10px] text-red-500 font-bold uppercase tracking-widest border border-red-900/50 rounded">
-                            CONTEXTO
+                    <div class="relative bg-zinc-900/30 border-l-[3px] border-red-900/60 pl-6 pr-4 py-4 mt-8 transition-all hover:bg-zinc-900/50 hover:border-red-600">
+                        <div class="flex items-center gap-2 mb-3 opacity-60">
+                             <div class="w-1.5 h-1.5 bg-red-800 rounded-full"></div>
+                             <span class="text-[9px] text-zinc-500 font-mono uppercase tracking-[0.2em]">CONTEXT_DATA</span>
                         </div>
-                        <p class="text-sm md:text-base font-mono text-zinc-400 leading-relaxed">
+                        <p class="text-sm md:text-base font-mono text-zinc-500 leading-relaxed text-justify mix-blend-screen">
                             ${block.context}
                         </p>
                     </div>
