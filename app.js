@@ -193,24 +193,32 @@ document.addEventListener('DOMContentLoaded', async () => {
                 // Lyrics
                 const lyricEn = document.getElementById('lyric-en');
                 const lyricEs = document.getElementById('lyric-es');
+                const contextContainer = document.getElementById('context-container');
 
                 lyricEn.classList.remove('fade-in');
-                lyricEs.parentElement.classList.remove('fade-in');
+                lyricEs.parentElement.classList.remove('fade-in'); // Target #lyric-es-container
                 void lyricEn.offsetWidth;
 
                 lyricEn.innerHTML = block.en.replace(/\n/g, '<br>');
                 lyricEn.classList.add('fade-in');
 
-                lyricEs.innerHTML = `
-                    <span class="block text-zinc-300 font-serif italic mb-4 border-l-2 border-zinc-600 pl-3">
-                        "${block.es_text.replace(/\n/g, '<br>')}"
-                    </span>
-                    <div class="mt-4 text-sm font-mono text-red-400">
-                        <strong class="text-red-600 uppercase text-xs tracking-widest block mb-1">[ DEEP DIVE ]</strong>
-                        ${block.context}
+                // Render Spanish Text with Premium Typography
+                lyricEs.innerHTML = `"${block.es_text.replace(/\n/g, '<br>')}"`;
+
+                // Render Context with clearly defined visual hierarchy
+                contextContainer.innerHTML = `
+                    <div class="relative bg-zinc-900/40 border border-zinc-800 p-4 rounded-lg mt-4">
+                        <div class="absolute -top-3 left-4 bg-black px-2 text-[10px] text-red-500 font-bold uppercase tracking-widest border border-red-900/50 rounded">
+                            CONTEXTO
+                        </div>
+                        <p class="text-sm md:text-base font-mono text-zinc-400 leading-relaxed">
+                            ${block.context}
+                        </p>
                     </div>
                 `;
-                lyricEs.parentElement.classList.add('fade-in');
+
+                // Re-trigger animation on the container
+                document.getElementById('lyric-es-container').classList.add('fade-in');
             };
 
             atomsContainer.appendChild(btn);
