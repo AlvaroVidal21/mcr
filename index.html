@@ -197,12 +197,18 @@
     </style>
 </head>
 
-<body class="h-[100dvh] flex flex-col overflow-hidden bg-zinc-950 text-d4d4d4 bg-noise select-none md:select-auto">
+<body
+    class="h-[100dvh] w-full flex flex-col overflow-hidden bg-zinc-950 text-d4d4d4 select-none md:select-auto relative">
 
-    <!-- Vignette Overlay -->
-    <div class="fixed inset-0 pointer-events-none vignette z-50"></div>
+    <!-- AESTHETIC BACKGROUND LAYER (Z-0) -->
+    <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+        <!-- Noise -->
+        <div class="absolute inset-0 opacity-[0.15] bg-noise mix-blend-overlay"></div>
+        <!-- Vignette -->
+        <div class="absolute inset-0 bg-[radial-gradient(circle,transparent_60%,black_100%)] opacity-80"></div>
+    </div>
 
-    <!-- Mobile Intro Overlay -->
+    <!-- Mobile Intro Overlay (Z-60) -->
     <div id="intro-overlay"
         class="fixed inset-0 z-[60] bg-black flex flex-col items-center justify-center p-6 text-center transition-opacity duration-500 md:hidden"
         style="display: none;">
@@ -221,11 +227,12 @@
 
     <div id="sidebar-overlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-30 transition-opacity"></div>
 
-    <!-- Header: Minimal on mobile, Full on Desktop -->
+    <!-- Header (Z-50) -->
     <header
-        class="border-b border-zinc-900 p-2 md:p-4 flex justify-between items-center bg-zinc-950/90 backdrop-blur-md z-40 h-14 md:h-auto shrink-0 relative">
+        class="shrink-0 border-b border-zinc-900 p-2 md:p-4 flex justify-between items-center bg-zinc-950/90 backdrop-blur-md z-50 h-14 md:h-auto relative">
         <div class="flex items-center gap-3 overflow-hidden">
-            <button id="menu-toggle" class="md:hidden p-2 text-zinc-400 hover:text-white transition-colors">
+            <button id="menu-toggle"
+                class="md:hidden p-2 text-zinc-400 hover:text-white transition-colors relative z-50">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
@@ -233,17 +240,15 @@
             </button>
             <div class="flex-1 min-w-0 flex flex-col justify-center">
                 <h1 id="song-title"
-                    class="text-lg md:text-2xl font-bold text-white tracking-tighter glitch-hover cursor-default leading-none truncate">
+                    class="text-lg md:text-2xl font-bold text-white tracking-tighter glitch-hover cursor-default leading-none truncate relative z-50">
                     SELECT_TRACK</h1>
-                <!-- Interpretación: Hidden on Mobile now -->
                 <p id="song-meta"
                     class="hidden md:block text-[10px] md:text-xs text-red-500 uppercase tracking-widest leading-relaxed mt-2 break-words max-w-[180px] xs:max-w-xs md:max-w-2xl">
                     NO_DATA_LOADED</p>
             </div>
         </div>
 
-        <div class="flex flex-col items-end gap-1 md:gap-2">
-            <!-- Simplified selector for mobile -->
+        <div class="flex flex-col items-end gap-1 md:gap-2 relative z-50">
             <select id="track-selector"
                 class="bg-black border border-zinc-700 text-[10px] md:text-sm p-1 md:p-2 rounded text-zinc-400 focus:border-red-500 outline-none w-32 md:w-auto h-8 md:h-auto">
                 <option value="">TRACK...</option>
@@ -254,11 +259,12 @@
         </div>
     </header>
 
-    <div class="h-0.5 w-full bg-zinc-900 z-50 shrink-0">
+    <div class="h-0.5 w-full bg-zinc-900 z-50 shrink-0 relative">
         <div id="progress-bar" class="h-full bg-red-600 w-0"></div>
     </div>
 
-    <div class="flex flex-1 overflow-hidden relative">
+    <!-- Main Content Container (Z-10) -->
+    <div class="flex flex-1 overflow-hidden relative z-10 w-full h-full">
 
         <aside id="sidebar" class="w-1/3 md:w-1/4 border-r border-zinc-800 flex flex-col bg-zinc-950 md:bg-zinc-950/50">
             <div class="p-3 text-xs font-bold text-zinc-600 uppercase border-b border-zinc-900 bg-black/20">Estructura
@@ -267,43 +273,46 @@
             </div>
         </aside>
 
-        <main id="main-content"
-            class="flex-1 flex flex-col relative bg-gradient-to-br from-black to-zinc-900 overflow-hidden">
+        <!-- SPLIT VIEW CONTAINER -->
+        <main id="main-content" class="flex-1 flex flex-col relative bg-transparent overflow-hidden w-full h-full">
 
-            <!-- English Lyrics Section (30% height on mobile) -->
+            <!-- Top Section: English Lyrics (40%) -->
             <div
-                class="h-[40%] md:h-auto md:flex-1 p-4 md:p-8 flex flex-col justify-center items-center border-b border-zinc-800 md:border-b-0 bg-black/10 overflow-hidden relative">
+                class="flex-[2] md:flex-1 flex flex-col relative border-b border-zinc-900 md:border-b-0 overflow-hidden min-h-0">
                 <!-- Background decoration -->
                 <div
-                    class="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-red-900/10 to-transparent opacity-50">
+                    class="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,rgba(127,29,29,0.1)_0%,transparent_70%)]">
                 </div>
 
-                <div class="w-full h-full flex items-center justify-center overflow-y-auto scrolling-touch">
+                <div class="flex-1 w-full flex items-center justify-center p-4 overflow-y-auto scrolling-touch">
                     <div id="lyric-en"
-                        class="text-xl xs:text-2xl md:text-4xl lg:text-5xl font-bold text-white leading-tight drop-shadow-2xl text-center text-balance max-h-full">
-                        <span class="text-zinc-700 text-base animate-pulse">Select a track...</span>
+                        class="text-xl xs:text-2xl md:text-3xl lg:text-5xl font-bold text-white leading-tight drop-shadow-2xl text-center text-balance">
+                        <span class="text-zinc-600 text-sm font-mono tracking-widest uppercase animate-pulse">Select a
+                            track...</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Context / Translation Section (60% height on mobile) -->
+            <!-- Bottom Section: Interpretation (60%) -->
             <div
-                class="h-[60%] md:h-2/5 border-t border-zinc-900 bg-zinc-950/95 md:bg-black/90 backdrop-blur p-5 md:p-8 overflow-y-auto scrolling-touch pb-20 md:pb-6 relative z-30">
+                class="flex-[3] md:flex-[2] flex flex-col relative bg-zinc-950/90 backdrop-blur border-t border-red-900/20 shadow-[0_-10px_30px_rgba(0,0,0,0.8)] min-h-0">
 
                 <div
-                    class="sticky top-0 bg-zinc-950/80 backdrop-blur-md mb-6 flex items-center gap-2 py-2 border-b border-red-900/20 z-40">
-                    <div class="h-1.5 w-1.5 bg-red-700 rotate-45"></div>
+                    class="shrink-0 flex items-center gap-2 px-6 py-3 border-b border-zinc-900/50 bg-zinc-950/50 backdrop-blur z-20">
+                    <div class="w-1.5 h-1.5 bg-red-700 rotate-45"></div>
                     <h3 class="text-zinc-600 text-[10px] md:text-xs font-bold uppercase tracking-[0.3em] font-mono">
-                        INTERPRETATION_LOG</h3>
+                        LOG_ENTRY</h3>
                 </div>
 
-                <div id="lyric-es-container" class="space-y-6 pb-8">
-                    <p id="lyric-es"
-                        class="text-zinc-300 text-xl md:text-2xl font-romance italic leading-loose text-pretty pl-2 border-l border-zinc-800">
-                        --
-                    </p>
-                    <div id="context-container">
-                        <!-- Context inserted via JS -->
+                <div class="flex-1 overflow-y-auto p-6 md:p-8 scrolling-touch pb-20">
+                    <div id="lyric-es-container" class="space-y-8">
+                        <p id="lyric-es"
+                            class="text-zinc-300 text-xl md:text-2xl font-romance italic leading-loose text-pretty pl-4 border-l-2 border-zinc-800">
+                            --
+                        </p>
+                        <div id="context-container">
+                            <!-- Context inserted via JS -->
+                        </div>
                     </div>
                 </div>
             </div>
