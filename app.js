@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.getElementById('song-title').innerText = "ERROR_LOADING_DATA";
         return;
     }
-    
+
     // 2. Llenar el Dropdown
     data.songs.forEach(song => {
         const option = document.createElement('option');
@@ -53,44 +53,103 @@ document.addEventListener('DOMContentLoaded', async () => {
     function selectSong(songId, blockIdx = 0) {
         currentSong = data.songs.find(s => s.id === songId);
         if (!currentSong) return;
-        
+
         loadSongStructure(currentSong, blockIdx);
     }
 
+    // --- SISTEMA DE NAVEGACIÓN ---
+
+    const nextBlock = () => {
+        if (!currentSong) return;
+        if (currentBlockIndex < currentSong.blocks.length - 1) {
+            renderBlock(currentBlockIndex + 1);
+        }
+    };
+
+    const prevBlock = () => {
+        if (!currentSong) return;
+        if (currentBlockIndex > 0) {
+            renderBlock(currentBlockIndex - 1);
+        }
+    };
+
+    const nextSongNav = () => {
+        if (!currentSong) return;
+        const currentSongIdx = data.songs.findIndex(s => s.id === currentSong.id);
+        if (currentSongIdx < data.songs.length - 1) {
+            const nextSong = data.songs[currentSongIdx + 1];
+            selector.value = nextSong.id;
+            localStorage.setItem('lastSongId', nextSong.id);
+            localStorage.setItem('lastBlockIdx', 0);
+            selectSong(nextSong.id, 0);
+        }
+    };
+
+    const prevSongNav = () => {
+        if (!currentSong) return;
+        const currentSongIdx = data.songs.findIndex(s => s.id === currentSong.id);
+        if (currentSongIdx > 0) {
+            const prevSong = data.songs[currentSongIdx - 1];
+            selector.value = prevSong.id;
+            localStorage.setItem('lastSongId', prevSong.id);
+            localStorage.setItem('lastBlockIdx', 0);
+            selectSong(prevSong.id, 0);
+        }
+    };
+
     // Navegación por Teclado
     window.addEventListener('keydown', (e) => {
-        if (!currentSong) return;
-        
-        // Navegación de BLOQUES (Arriba/Abajo)
-        if (e.key === 'ArrowDown') {
-            if (currentBlockIndex < currentSong.blocks.length - 1) {
-                renderBlock(currentBlockIndex + 1);
-            }
-        } else if (e.key === 'ArrowUp') {
-            if (currentBlockIndex > 0) {
-                renderBlock(currentBlockIndex - 1);
-            }
-        } 
-        // Navegación de CANCIONES (Derecha/Izquierda)
-        else if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
-            const currentSongIdx = data.songs.findIndex(s => s.id === currentSong.id);
-            let nextSongIdx = currentSongIdx;
+        if (e.key === 'ArrowDown') nextBlock();
+        else if (e.key === 'ArrowUp') prevBlock();
+        else if (e.key === 'ArrowRight') nextSongNav();
+        else if (e.key === 'ArrowLeft') prevSongNav();
+    });
 
-            if (e.key === 'ArrowRight' && currentSongIdx < data.songs.length - 1) {
-                nextSongIdx = currentSongIdx + 1;
-            } else if (e.key === 'ArrowLeft' && currentSongIdx > 0) {
-                nextSongIdx = currentSongIdx - 1;
-            }
+    // Navegación por Gesto (Touch)
+    let touchStartX = 0;
+    let touchStartY = 0;
 
-            if (nextSongIdx !== currentSongIdx) {
-                const nextSong = data.songs[nextSongIdx];
-                selector.value = nextSong.id; // Sincroniza el dropdown visualmente
-                localStorage.setItem('lastSongId', nextSong.id);
-                localStorage.setItem('lastBlockIdx', 0);
-                selectSong(nextSong.id, 0);
+    window.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+        touchStartY = e.changedTouches[0].screenY;
+    }, { passive: true });
+
+    window.addEventListener('touchend', (e) => {
+        const touchEndX = e.changedTouches[0].screenX;
+        const touchEndY = e.changedTouches[0].screenY;
+
+        const deltaX = touchEndX - touchStartX;
+        const deltaY = touchEndY - touchStartY;
+
+        const threshold = 70; // Umbral de desplazamiento mínimo
+        const restraint = 100; // Máximo desplazamiento en el eje opuesto
+        const duration = 500; // Máximo tiempo permitido para el gesto (opcional)
+
+        // Verificamos si el usuario está haciendo scroll en un elemento scrollable
+        const scrollableTarget = e.target.closest('.overflow-y-auto');
+        let isScrolledToLimit = true;
+
+        if (scrollableTarget) {
+            const { scrollTop, scrollHeight, clientHeight } = scrollableTarget;
+            if (deltaY < 0) { // Swiping up -> Intenta ir abajo
+                isScrolledToLimit = (scrollTop + clientHeight >= scrollHeight - 5);
+            } else { // Swiping down -> Intenta ir arriba
+                isScrolledToLimit = (scrollTop <= 5);
             }
         }
-    });
+
+        if (Math.abs(deltaX) > threshold && Math.abs(deltaY) < restraint) {
+            // Swipe Horizontal: Cambio de Canción
+            if (deltaX > 0) prevSongNav();
+            else nextSongNav();
+        } else if (Math.abs(deltaY) > threshold && Math.abs(deltaX) < restraint) {
+            // Swipe Vertical: Cambio de Bloque (Solo si no hay más scroll posible)
+            if (isScrolledToLimit) {
+                if (deltaY > 0) prevBlock();
+                else nextBlock();
+            }
+        }
+    }, { passive: true });
 
     function renderBlock(index) {
         const buttons = atomsContainer.querySelectorAll('.atom-btn');
@@ -104,17 +163,17 @@ document.addEventListener('DOMContentLoaded', async () => {
     function loadSongStructure(song, startIdx = 0) {
         document.getElementById('song-title').innerText = song.title;
         document.getElementById('song-meta').innerText = song.interpretation || "READY";
-        atomsContainer.innerHTML = ''; 
+        atomsContainer.innerHTML = '';
 
         song.blocks.forEach((block, index) => {
             const btn = document.createElement('button');
             btn.className = `atom-btn w-full text-left p-4 border border-zinc-800 bg-zinc-900/50 text-xs md:text-sm font-mono text-zinc-400 transition-all duration-200 hover:pl-6 break-words whitespace-normal leading-tight`;
             btn.innerText = `[${String(index + 1).padStart(2, '0')}] ${block.label}`;
-            
+
             btn.onclick = () => {
                 currentBlockIndex = index;
                 localStorage.setItem('lastBlockIdx', index);
-                
+
                 // Cerrar sidebar en móvil al seleccionar
                 if (window.innerWidth < 768) toggleSidebar(false);
 
@@ -137,8 +196,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
                 lyricEn.classList.remove('fade-in');
                 lyricEs.parentElement.classList.remove('fade-in');
-                void lyricEn.offsetWidth; 
-                
+                void lyricEn.offsetWidth;
+
                 lyricEn.innerHTML = block.en.replace(/\n/g, '<br>');
                 lyricEn.classList.add('fade-in');
 
@@ -164,7 +223,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Auto-load Persistence
     const lastSong = localStorage.getItem('lastSongId');
     const lastBlock = parseInt(localStorage.getItem('lastBlockIdx')) || 0;
-    
+
     if (lastSong) {
         selector.value = lastSong;
         selectSong(lastSong, lastBlock);
