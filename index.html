@@ -11,13 +11,57 @@
 
         :root {
             scrollbar-gutter: stable;
+            --bg-primary: #09090b;
+            /* zinc-950 */
+            --bg-secondary: #000000;
+            --bg-sidebar: #09090b;
+            --text-primary: #ffffff;
+            --text-secondary: #a1a1aa;
+            /* zinc-400 */
+            --text-muted: #71717a;
+            /* zinc-500 */
+            --accent: #ef4444;
+            /* red-500 */
+            --accent-dark: #7f1d1d;
+            /* red-900 */
+            --border: #18181b;
+            /* zinc-900 */
+            --border-hover: #27272a;
+            /* zinc-800 */
+            --overlay: rgba(0, 0, 0, 0.8);
+            --noise-opacity: 0.15;
+            --vignette-opacity: 0.8;
+        }
+
+        .light-mode {
+            --bg-primary: #fdfdfd;
+            --bg-secondary: #f4f4f5;
+            /* zinc-100 */
+            --bg-sidebar: #ffffff;
+            --text-primary: #09090b;
+            --text-secondary: #3f3f46;
+            /* zinc-700 */
+            --text-muted: #71717a;
+            /* zinc-500 */
+            --accent: #b91c1c;
+            /* red-700 */
+            --accent-dark: #450a0a;
+            /* red-950 */
+            --border: #e4e4e7;
+            /* zinc-200 */
+            --border-hover: #d4d4d8;
+            /* zinc-300 */
+            --overlay: rgba(255, 255, 255, 0.82);
+            --noise-opacity: 0.08;
+            --vignette-opacity: 0.2;
         }
 
         body {
             font-family: 'JetBrains Mono', monospace;
-            background-color: #030303;
-            color: #d4d4d4;
+            background-color: var(--bg-primary);
+            color: var(--text-secondary);
             overscroll-behavior: none;
+            transition: background-color 0.4s ease, color 0.4s ease;
         }
 
         /* --- MCR AESTHETICS --- */
@@ -106,6 +150,7 @@
         /* 3. Vignette */
         .vignette {
             background: radial-gradient(circle, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.8) 100%);
+            opacity: var(--vignette-opacity);
         }
 
         /* 4. Text Glooms */
@@ -124,16 +169,15 @@
         }
 
         .active-atom {
-            background-color: #7f1d1d;
-            /* red-900 darker */
-            color: white;
-            border-left: 4px solid #ef4444;
+            background-color: var(--accent-dark);
+            color: #ffffff;
+            border-left: 4px solid var(--accent);
             box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
         }
 
         .atom-btn:hover:not(.active-atom) {
-            border-color: #7f1d1d;
-            color: #ef4444;
+            border-color: var(--accent-dark);
+            color: var(--accent);
             background: linear-gradient(90deg, rgba(220, 38, 38, 0.05) 0%, transparent 100%);
         }
 
@@ -197,29 +241,31 @@
 </head>
 
 <body
-    class="h-[100dvh] w-full flex flex-col overflow-hidden bg-zinc-950 text-d4d4d4 select-none md:select-auto relative">
+    class="h-[100dvh] w-full flex flex-col overflow-hidden bg-[var(--bg-primary)] text-[var(--text-secondary)] select-none md:select-auto relative">
 
     <!-- AESTHETIC BACKGROUND LAYER (Z-0) -->
     <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <!-- Noise -->
-        <div class="absolute inset-0 opacity-[0.15] bg-noise mix-blend-overlay"></div>
+        <div class="absolute inset-0 opacity-[var(--noise-opacity)] bg-noise mix-blend-overlay"></div>
         <!-- Vignette -->
-        <div class="absolute inset-0 bg-[radial-gradient(circle,transparent_60%,black_100%)] opacity-80"></div>
+        <div
+            class="absolute inset-0 bg-[radial-gradient(circle,transparent_60%,black_100%)] opacity-[var(--vignette-opacity)]">
+        </div>
     </div>
 
     <!-- Mobile Intro Overlay (Z-60) -->
     <div id="intro-overlay"
-        class="fixed inset-0 z-[60] bg-black flex flex-col items-center justify-center p-6 text-center transition-opacity duration-500 md:hidden"
+        class="fixed inset-0 z-[60] bg-[var(--bg-primary)] flex flex-col items-center justify-center p-6 text-center transition-opacity duration-500 md:hidden"
         style="display: none;">
         <h2 id="intro-title"
-            class="text-3xl font-bold text-white mb-4 tracking-tighter mix-blend-difference font-romance italic">
+            class="text-3xl font-bold text-[var(--text-primary)] mb-4 tracking-tighter mix-blend-difference font-romance italic">
             PREP_MODE</h2>
-        <div class="w-16 h-1 bg-red-800 mb-6 shadow-[0_0_10px_rgba(220,38,38,0.5)]"></div>
-        <p id="intro-text" class="text-zinc-500 text-xl font-romance italic mb-10 leading-relaxed max-w-sm">
+        <div class="w-16 h-1 bg-[var(--accent)] mb-6 shadow-[0_0_10px_rgba(220,38,38,0.5)]"></div>
+        <p id="intro-text" class="text-[var(--text-muted)] text-xl font-romance italic mb-10 leading-relaxed max-w-sm">
             Select a track to begin...
         </p>
         <button id="start-btn"
-            class="px-8 py-3 border border-red-900/50 text-red-600 font-bold text-lg uppercase tracking-widest hover:bg-red-900/20 transition-all font-mono">
+            class="px-8 py-3 border border-[var(--accent)]/50 text-[var(--accent)] font-bold text-lg uppercase tracking-widest hover:bg-[var(--accent)]/20 transition-all font-mono">
             [ INICIAR ]
         </button>
     </div>
@@ -228,10 +274,10 @@
 
     <!-- Header (Z-50) -->
     <header
-        class="shrink-0 border-b border-zinc-900 p-2 md:p-4 flex justify-between items-center bg-zinc-950/90 backdrop-blur-md z-50 h-14 md:h-auto relative">
+        class="shrink-0 border-b border-[var(--border)] p-2 md:p-4 flex justify-between items-center bg-[var(--bg-primary)]/90 backdrop-blur-md z-50 h-14 md:h-auto relative">
         <div class="flex items-center gap-3 overflow-hidden">
             <button id="menu-toggle"
-                class="md:hidden p-2 text-zinc-400 hover:text-white transition-colors relative z-50">
+                class="md:hidden p-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors relative z-50">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
@@ -239,34 +285,57 @@
             </button>
             <div class="flex-1 min-w-0 flex flex-col justify-center">
                 <h1 id="song-title"
-                    class="text-lg md:text-2xl font-bold text-white tracking-tighter glitch-hover cursor-default leading-none truncate relative z-50">
+                    class="text-lg md:text-2xl font-bold text-[var(--text-primary)] tracking-tighter glitch-hover cursor-default leading-none truncate relative z-50">
                     SELECT_TRACK</h1>
                 <p id="song-meta"
-                    class="hidden md:block text-[10px] md:text-xs text-red-500 uppercase tracking-widest leading-relaxed mt-2 break-words max-w-[180px] xs:max-w-xs md:max-w-2xl">
+                    class="hidden md:block text-[10px] md:text-xs text-[var(--accent)] uppercase tracking-widest leading-relaxed mt-2 break-words max-w-[180px] xs:max-w-xs md:max-w-2xl">
                     NO_DATA_LOADED</p>
             </div>
         </div>
 
-        <div class="flex flex-col items-end gap-1 md:gap-2 relative z-50">
-            <select id="track-selector"
-                class="bg-black border border-zinc-700 text-[10px] md:text-sm p-1 md:p-2 rounded text-zinc-400 focus:border-red-500 outline-none w-32 md:w-auto h-8 md:h-auto">
-                <option value="">TRACK...</option>
-            </select>
-            <span id="block-counter"
-                class="hidden lg:block text-[9px] font-mono text-zinc-500 uppercase tracking-tighter">BLOCK:
-                00/00</span>
+        <div class="flex items-center gap-2 md:gap-4 relative z-50">
+            <button id="theme-toggle"
+                class="h-8 md:h-10 px-2 md:px-4 border border-[var(--border)] text-[var(--text-secondary)] hover:border-[var(--accent)] hover:text-[var(--accent)] transition-all flex items-center gap-2 group shrink-0">
+                <span
+                    class="hidden md:inline text-[10px] uppercase tracking-tighter font-bold group-hover:tracking-widest transition-all"
+                    id="theme-text">GHOST_MODE</span>
+                <svg id="theme-icon-dark" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                </svg>
+                <svg id="theme-icon-light" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 hidden" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.364l-.707.707M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+            </button>
+
+            <div class="relative flex flex-col items-end justify-center">
+                <select id="track-selector"
+                    class="bg-[var(--bg-secondary)] border border-[var(--border)] text-[10px] md:text-sm px-2 rounded text-[var(--text-secondary)] focus:border-[var(--accent)] outline-none w-32 md:w-auto h-8 md:h-10">
+                    <option value="">TRACK...</option>
+                </select>
+                <span id="block-counter"
+                    class="hidden lg:block text-[8px] font-mono text-[var(--text-muted)] uppercase tracking-tighter absolute -bottom-4 right-0 leading-none">BLOCK:
+                    00/00</span>
+            </div>
         </div>
     </header>
 
-    <div class="h-0.5 w-full bg-zinc-900 z-50 shrink-0 relative">
-        <div id="progress-bar" class="h-full bg-red-600 w-0"></div>
+    <div class="h-0.5 w-full bg-[var(--border)] z-50 shrink-0 relative">
+        <div id="progress-bar" class="h-full bg-[var(--accent)] w-0 shadow-[0_0_10px_var(--accent)] transition-all">
+        </div>
     </div>
 
     <!-- Main Content Container (Z-10) -->
     <div class="flex flex-1 overflow-hidden relative z-10 w-full h-full">
 
-        <aside id="sidebar" class="w-1/3 md:w-1/4 border-r border-zinc-800 flex flex-col bg-zinc-950 md:bg-zinc-950/50">
-            <div class="p-3 text-xs font-bold text-zinc-600 uppercase border-b border-zinc-900 bg-black/20">Estructura
+        <aside id="sidebar"
+            class="w-1/3 md:w-1/4 border-r border-[var(--border)] flex flex-col bg-[var(--bg-sidebar)] md:bg-[var(--bg-sidebar)]/50">
+            <div
+                class="p-3 text-xs font-bold text-[var(--text-muted)] uppercase border-b border-[var(--border)] bg-black/20">
+                Estructura
             </div>
             <div id="atoms-container" class="flex-1 overflow-y-auto p-2 space-y-1 scrolling-touch">
             </div>
@@ -280,13 +349,15 @@
                 class="flex-[2] md:flex-1 flex flex-col relative border-b border-zinc-900 md:border-b-0 overflow-hidden min-h-0">
                 <!-- Background decoration -->
                 <div
-                    class="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,rgba(127,29,29,0.1)_0%,transparent_70%)]">
+                    class="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,rgba(127,29,29,0.05)_0%,transparent_70%)]">
                 </div>
 
                 <div class="flex-1 w-full flex items-center justify-center p-4 overflow-y-auto scrolling-touch">
                     <div id="lyric-en"
-                        class="text-xl xs:text-2xl md:text-3xl lg:text-5xl font-bold text-white leading-tight drop-shadow-2xl text-center text-balance">
-                        <span class="text-zinc-600 text-sm font-mono tracking-widest uppercase animate-pulse">Select a
+                        class="text-xl xs:text-2xl md:text-3xl lg:text-5xl font-bold text-[var(--text-primary)] leading-tight drop-shadow-2xl text-center text-balance">
+                        <span
+                            class="text-[var(--text-muted)] text-sm font-mono tracking-widest uppercase animate-pulse">Select
+                            a
                             track...</span>
                     </div>
                 </div>
@@ -294,19 +365,20 @@
 
             <!-- Bottom Section: Interpretation (60%) -->
             <div
-                class="flex-[3] md:flex-[2] flex flex-col relative bg-zinc-950/90 backdrop-blur border-t border-red-900/20 shadow-[0_-10px_30px_rgba(0,0,0,0.8)] min-h-0">
+                class="flex-[3] md:flex-[2] flex flex-col relative bg-[var(--bg-primary)]/90 backdrop-blur border-t border-[var(--accent)]/20 shadow-[0_-10px_30px_rgba(0,0,0,0.8)] min-h-0">
 
                 <div
-                    class="shrink-0 flex items-center gap-2 px-6 py-3 border-b border-zinc-900/50 bg-zinc-950/50 backdrop-blur z-20">
-                    <div class="w-1.5 h-1.5 bg-red-700 rotate-45"></div>
-                    <h3 class="text-zinc-600 text-[10px] md:text-xs font-bold uppercase tracking-[0.3em] font-mono">
+                    class="shrink-0 flex items-center gap-2 px-6 py-3 border-b border-[var(--border)]/50 bg-[var(--bg-primary)]/50 backdrop-blur z-20">
+                    <div class="w-1.5 h-1.5 bg-[var(--accent)] rotate-45"></div>
+                    <h3
+                        class="text-[var(--text-muted)] text-[10px] md:text-xs font-bold uppercase tracking-[0.3em] font-mono">
                         LOG_ENTRY</h3>
                 </div>
 
                 <div class="flex-1 overflow-y-auto p-6 md:p-8 scrolling-touch pb-20">
                     <div id="lyric-es-container" class="space-y-8">
                         <p id="lyric-es"
-                            class="text-zinc-300 text-xl md:text-2xl font-romance italic leading-loose text-pretty pl-4 border-l-2 border-zinc-800">
+                            class="text-[var(--text-secondary)] text-xl md:text-2xl font-romance italic leading-loose text-pretty pl-4 border-l-2 border-[var(--border)]">
                             --
                         </p>
                         <div id="context-container">

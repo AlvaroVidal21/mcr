@@ -10,6 +10,35 @@ document.addEventListener('DOMContentLoaded', async () => {
     const sidebar = document.getElementById('sidebar');
     const sidebarOverlay = document.getElementById('sidebar-overlay');
     const menuToggle = document.getElementById('menu-toggle');
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeText = document.getElementById('theme-text');
+    const themeIconDark = document.getElementById('theme-icon-dark');
+    const themeIconLight = document.getElementById('theme-icon-light');
+
+    // --- THEME MANAGEMENT ---
+    const setTheme = (theme) => {
+        if (theme === 'light') {
+            document.body.classList.add('light-mode');
+            themeText.innerText = 'MARCH_MODE';
+            themeIconDark.classList.add('hidden');
+            themeIconLight.classList.remove('hidden');
+        } else {
+            document.body.classList.remove('light-mode');
+            themeText.innerText = 'GHOST_MODE';
+            themeIconDark.classList.remove('hidden');
+            themeIconLight.classList.add('hidden');
+        }
+        localStorage.setItem('theme', theme);
+    };
+
+    themeToggle.addEventListener('click', () => {
+        const isLight = document.body.classList.contains('light-mode');
+        setTheme(isLight ? 'dark' : 'light');
+    });
+
+    // Initialize Theme
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    setTheme(savedTheme);
 
     // Manejo de Sidebar en móvil
     const toggleSidebar = (state) => {
@@ -208,7 +237,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         song.blocks.forEach((block, index) => {
             const btn = document.createElement('button');
-            btn.className = `atom-btn w-full text-left p-4 border border-zinc-800 bg-zinc-900/50 text-xs md:text-sm font-mono text-zinc-400 transition-all duration-200 hover:pl-6 break-words whitespace-normal leading-tight`;
+            btn.className = `atom-btn w-full text-left p-4 border border-[var(--border)] bg-[var(--bg-primary)]/50 text-xs md:text-sm font-mono text-[var(--text-secondary)] transition-all duration-200 hover:pl-6 break-words whitespace-normal leading-tight`;
             btn.innerText = `[${String(index + 1).padStart(2, '0')}] ${block.label}`;
 
             btn.onclick = () => {
@@ -221,10 +250,10 @@ document.addEventListener('DOMContentLoaded', async () => {
                 // Actualizar UI
                 document.querySelectorAll('.atom-btn').forEach(b => {
                     b.classList.remove('active-atom');
-                    b.classList.add('border-zinc-800');
+                    b.classList.add('border-[var(--border)]');
                 });
                 btn.classList.add('active-atom');
-                btn.classList.remove('border-zinc-800');
+                btn.classList.remove('border-[var(--border)]');
 
                 // Progreso y Contador
                 const progress = ((index + 1) / song.blocks.length) * 100;
@@ -248,12 +277,12 @@ document.addEventListener('DOMContentLoaded', async () => {
 
                 // Render Context with Grim/Medical Aesthetic
                 contextContainer.innerHTML = `
-                    <div class="relative bg-zinc-900/30 border-l-[3px] border-red-900/60 pl-6 pr-4 py-4 mt-8 transition-all hover:bg-zinc-900/50 hover:border-red-600">
+                    <div class="relative bg-[var(--bg-secondary)]/30 border-l-[3px] border-[var(--accent)]/60 pl-6 pr-4 py-4 mt-8 transition-all hover:bg-[var(--bg-secondary)]/50 hover:border-[var(--accent)]">
                         <div class="flex items-center gap-2 mb-3 opacity-60">
-                             <div class="w-1.5 h-1.5 bg-red-800 rounded-full"></div>
-                             <span class="text-[9px] text-zinc-500 font-mono uppercase tracking-[0.2em]">CONTEXT_DATA</span>
+                             <div class="w-1.5 h-1.5 bg-[var(--accent)] rounded-full"></div>
+                             <span class="text-[9px] text-[var(--text-muted)] font-mono uppercase tracking-[0.2em]">CONTEXT_DATA</span>
                         </div>
-                        <p class="text-sm md:text-base font-mono text-zinc-500 leading-relaxed text-justify mix-blend-screen">
+                        <p class="text-sm md:text-base font-mono text-[var(--text-secondary)] leading-relaxed text-justify mix-blend-difference">
                             ${block.context}
                         </p>
                     </div>
