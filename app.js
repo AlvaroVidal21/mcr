@@ -160,9 +160,50 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     }
 
+    // --- OVERLAY LOGIC ---
+    const overlay = document.getElementById('intro-overlay');
+    const startBtn = document.getElementById('start-btn');
+    const introTitle = document.getElementById('intro-title');
+    const introText = document.getElementById('intro-text');
+    let isMobile = window.innerWidth < 768;
+
+    window.addEventListener('resize', () => {
+        isMobile = window.innerWidth < 768;
+        if (!isMobile) overlay.style.display = 'none';
+    });
+
+    startBtn.addEventListener('click', () => {
+        overlay.style.opacity = '0';
+        setTimeout(() => {
+            overlay.style.display = 'none';
+        }, 500);
+    });
+
+    function showOverlay(song) {
+        if (!isMobile) return;
+
+        introTitle.innerText = song.title;
+        introText.innerText = song.interpretation || "No interpretation available.";
+        overlay.style.display = 'flex';
+        overlay.style.opacity = '1';
+    }
+
     function loadSongStructure(song, startIdx = 0) {
         document.getElementById('song-title').innerText = song.title;
         document.getElementById('song-meta').innerText = song.interpretation || "READY";
+
+        // Mobile Overlay Trigger (Only if changing songs or first load)
+        // We check if startIdx is 0 (new song roughly) or just always show on selection?
+        // User asked "antes de empezar a practicar". So when selecting a song.
+        // If restoring session, maybe skipping is better? Let's show it to be safe as requested.
+        // But avoid showing it on simple block navigation (startIdx > 0 logic in caller might differ).
+        // Let's rely on explicit call or check if overlay needs update.
+
+        // IMPORTANT: Only show overlay if this is a NEW song interaction, 
+        // to avoid popping it up if we just reload the page on a specific block.
+        // However, user said "antes de empezar". Let's show it.
+        showOverlay(song);
+
         atomsContainer.innerHTML = '';
 
         song.blocks.forEach((block, index) => {
@@ -235,5 +276,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (lastSong) {
         selector.value = lastSong;
         selectSong(lastSong, lastBlock);
+
+        // If we just loaded (and are on mobile), showing the overlay immediately 
+        // forces the user to press start. This aligns with "Prep Mode".
     }
 });
