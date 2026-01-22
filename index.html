@@ -342,11 +342,12 @@
         </aside>
 
         <!-- SPLIT VIEW CONTAINER -->
-        <main id="main-content" class="flex-1 flex flex-col relative bg-transparent overflow-hidden w-full h-full">
+        <main id="main-content"
+            class="flex-1 flex flex-col md:flex-row relative bg-transparent overflow-hidden w-full h-full">
 
             <!-- Top Section: English Lyrics (Priority) -->
             <div
-                class="flex-[3] md:flex-[2] flex flex-col relative border-b border-zinc-900 md:border-b-0 overflow-hidden min-h-0">
+                class="flex-[3] md:flex-[2] flex flex-col relative border-b border-zinc-900 md:border-b-0 md:border-r md:border-zinc-800/50 overflow-hidden min-h-0">
                 <!-- Background decoration -->
                 <div
                     class="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,rgba(127,29,29,0.05)_0%,transparent_70%)]">
@@ -363,7 +364,7 @@
 
             <!-- Bottom Section: Interpretation -->
             <div
-                class="flex-[3] md:flex-[2] flex flex-col relative bg-zinc-950/90 backdrop-blur border-t border-red-900/20 shadow-[0_-10px_30px_rgba(0,0,0,0.8)] min-h-0">
+                class="flex-[2] md:flex-1 flex flex-col relative bg-zinc-950/90 backdrop-blur border-t border-red-900/20 shadow-[0_-10px_30px_rgba(0,0,0,0.8)] min-h-0">
 
                 <div
                     class="shrink-0 flex items-center gap-2 px-6 py-3 border-b border-[var(--border)]/50 bg-[var(--bg-primary)]/50 backdrop-blur z-20">
