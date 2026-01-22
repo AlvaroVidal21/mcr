@@ -275,26 +275,26 @@
         <!-- SPLIT VIEW CONTAINER -->
         <main id="main-content" class="flex-1 flex flex-col relative bg-transparent overflow-hidden w-full h-full">
 
-            <!-- Top Section: English Lyrics (40%) -->
+            <!-- Top Section: English Lyrics (Priority) -->
             <div
-                class="flex-[2] md:flex-1 flex flex-col relative border-b border-zinc-900 md:border-b-0 overflow-hidden min-h-0">
+                class="flex-[3] md:flex-[2] flex flex-col relative border-b border-zinc-900 md:border-b-0 overflow-hidden min-h-0">
                 <!-- Background decoration -->
                 <div
                     class="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,rgba(127,29,29,0.1)_0%,transparent_70%)]">
                 </div>
 
-                <div class="flex-1 w-full flex items-center justify-center p-4 overflow-y-auto scrolling-touch">
+                <div class="flex-1 w-full overflow-y-auto scrolling-touch flex flex-col p-4 md:p-8">
                     <div id="lyric-en"
-                        class="text-xl xs:text-2xl md:text-3xl lg:text-5xl font-bold text-white leading-tight drop-shadow-2xl text-center text-balance">
+                        class="m-auto text-xl xs:text-2xl md:text-3xl lg:text-5xl font-bold text-white leading-tight drop-shadow-2xl text-center text-balance">
                         <span class="text-zinc-600 text-sm font-mono tracking-widest uppercase animate-pulse">Select a
                             track...</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Bottom Section: Interpretation (60%) -->
+            <!-- Bottom Section: Interpretation -->
             <div
-                class="flex-[3] md:flex-[2] flex flex-col relative bg-zinc-950/90 backdrop-blur border-t border-red-900/20 shadow-[0_-10px_30px_rgba(0,0,0,0.8)] min-h-0">
+                class="flex-[2] md:flex-1 flex flex-col relative bg-zinc-950/90 backdrop-blur border-t border-red-900/20 shadow-[0_-10px_30px_rgba(0,0,0,0.8)] min-h-0">
 
                 <div
                     class="shrink-0 flex items-center gap-2 px-6 py-3 border-b border-zinc-900/50 bg-zinc-950/50 backdrop-blur z-20">
